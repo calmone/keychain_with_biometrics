@@ -12,8 +12,8 @@ import Security
 
 class ViewController: UIViewController {
     
-    private static let serviceID = "BioAuthTest"
-    private static let accountID = "penta"
+    private let serviceID = "BioAuthTest"
+    private let accountID = "penta"
     
     @IBOutlet weak var bioAuthSwitch: UISwitch!
     @IBOutlet weak var inputTextField: UITextField!
@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     
     private var isOnBioAuth: Bool = false
     private let maxPinNumberCount: Int = 6
+    
+    private let keychain = Keychain()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +53,8 @@ class ViewController: UIViewController {
     
     private func saveData() {
         if let pinNumber = inputTextField.text,
-            pinNumber.count == 6 {
-            saveKeychainData(value: pinNumber)
+            pinNumber.count == 6,
+            setKeychainData(value: pinNumber) {
             setButtons(isEnable: true)
             inputTextField.resignFirstResponder()
         }
@@ -132,15 +134,39 @@ class ViewController: UIViewController {
     }
     
     private func getKeychainData() -> String? {
-        return Keychain.get(service: ViewController.serviceID, account: ViewController.accountID)
+        do {
+            return try keychain.get(account: accountID)
+        } catch Keychain.error.convert(let e) {
+            print("getKeychainData error: \(e)")
+        } catch Keychain.error.keychainError(let e) {
+            print(e.localizedDescription)
+        } catch {
+            print(error.localizedDescription)
+        }
+        return nil
     }
     
-    private func saveKeychainData(value: String) {
-        Keychain.set(service: ViewController.serviceID, account: ViewController.accountID, value: value)
+    private func setKeychainData(value: String) -> Bool {
+        do {
+            return try keychain.set(account: accountID, value: value, authenticated: true)
+        } catch Keychain.error.convert(let e) {
+            print("setKeychainData error: \(e)")
+        } catch Keychain.error.keychainError(let e) {
+            print(e.localizedDescription)
+        } catch {
+            print(error.localizedDescription)
+        }
+        return false
     }
     
     private func deleteKeychainData() {
-        Keychain.delete(service: ViewController.serviceID, account: ViewController.accountID)
+        do {
+            try keychain.delete(account: accountID)
+        } catch Keychain.error.keychainError(let e) {
+            print(e.localizedDescription)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     private func setLabels(status: String, data: String) {

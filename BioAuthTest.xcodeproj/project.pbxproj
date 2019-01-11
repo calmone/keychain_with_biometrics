@@ -14,6 +14,7 @@
 		6B477BF221E2E0990041E553 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B477BF021E2E0990041E553 /* LaunchScreen.storyboard */; };
 		6B477BFD21E2E0990041E553 /* BioAuthTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B477BFC21E2E0990041E553 /* BioAuthTestTests.swift */; };
 		6B477C0821E2EE7A0041E553 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B477C0721E2EE7A0041E553 /* Keychain.swift */; };
+		6B7A9D1321E8897300A05EA4 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7A9D1221E8897300A05EA4 /* EnumCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		6B477BFC21E2E0990041E553 /* BioAuthTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioAuthTestTests.swift; sourceTree = "<group>"; };
 		6B477BFE21E2E0990041E553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B477C0721E2EE7A0041E553 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		6B7A9D1221E8897300A05EA4 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				6B477C0721E2EE7A0041E553 /* Keychain.swift */,
+				6B7A9D1221E8897300A05EA4 /* EnumCollection.swift */,
 			);
 			path = Keychain;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B7A9D1321E8897300A05EA4 /* EnumCollection.swift in Sources */,
 				6B477BEA21E2E0970041E553 /* ViewController.swift in Sources */,
 				6B477BE821E2E0970041E553 /* AppDelegate.swift in Sources */,
 				6B477C0821E2EE7A0041E553 /* Keychain.swift in Sources */,
@@ -373,7 +377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QWVW6Y84W4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BioAuthTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -392,7 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QWVW6Y84W4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BioAuthTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
